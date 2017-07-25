@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Add favicon-->
+  <link rel="shortcut icon" type="image/png" href="assets/Images/favicon.png">
+  <!-- reset for browser optimization -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <!-- local styesheet -->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <!-- bootstrap cdn -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- very important for modal works -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- link google font -->
+  <link href="https://fonts.googleapis.com/css?family=Calligraffitti" rel="stylesheet">
+</head>
+<body>
+<!-- Wrap all page content here -->
+<audio loop id="music" src="assets/music/music.mp3"></audio>
+<div id="wrap">
+<!-- add navbar -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- create how our navbar will be look in responsive -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#toButton">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div> <!-- end of navbar-header -->
+      <!-- locate our brand and text in the center of navbar -->
+      <div class="brand-centered">
+        <a class="navbar-brand" href="#">Rock Paper Scissors</a>
+      </div>  <!-- end of brand centred  -->
+      <!-- all in this div go to cool button in responsive -->
+      <div id="toButton" class="navbar-collapse collapse">
+        <!-- Locate rules on the left -->
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="#" id="rules">Rules</a>
+            <!-- How to play Modal -->
+            <div id="rulesModal" class="modal fade" role="dialog">
+              <div class="modal-dialog ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title rules-title text-center">Rules: How to play</h4>
+                  </div>
+                  <div class="modal-body rules-body">
+                    <div class="rules">
+                      <iframe id="video" src="" frameborder="0" allowfullscreen></iframe>
+                    </div> <!-- end of help div -->
+                  </div> <!-- end of modal body -->
+                  <div class="modal-footer">
+                    <div class="modal-btn-group">
+                      <!-- data-dismiss="modal" close our modal -->
+                      <button type="button" data-dismiss="modal" class="btn btn-lg Close">Close</button>
+                    </div>
+                  </div> <!-- end of modal footer -->
+                </div> <!-- end of modal content -->
+              </div> <!-- end of modal dialog -->
+            </div> <!-- end of help modal -->
+          </li>
+          <li><a href="#" class ="hide" id="character">Choice your characters</a>
+            <!-- How to play Modal -->
+            <div id="characterModal" class="modal fade" role="dialog">
+              <div class="modal-dialog ">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title rules-title text-center">Click on your characters</h4>
+                  </div>
+                  <div class="modal-body character-body">
+                    <div class="character">
+                      <div class="row">
+                      <img id ="r1" src="assets/Images/r1.png"></img>
+                      <img id ="r2" src="assets/Images/r2.png"></img>
+                      <img id ="r3" src="assets/Images/r3.png"></img>
+                      </div> <!-- end of row -->
+                       <div class="row">
+                      <img id ="p1" src="assets/Images/p1.png"></img>
+                      <img id ="p2" src="assets/Images/p2.png"></img>
+                      <img id ="p3" src="assets/Images/p3.png"></img>
+                      </div> <!-- end of row -->
+                       <div class="row">
+                      <img id ="s1" src="assets/Images/s1.png"></img>
+                      <img id ="s2" src="assets/Images/s2.png"></img>
+                      <img id ="s3" src="assets/Images/s3.png"></img>
+                      </div> <!-- end of row -->
+                    </div> <!-- end of character div -->
+                  </div> <!-- end of modal body -->
+                  <div class="modal-footer">
+                    <div class="modal-btn-group">
+                      <!-- data-dismiss="modal" close our modal -->
+                      <button type="button" data-dismiss="modal" class="btn btn-lg Close">Close</button>
+                    </div>
+                  </div> <!-- end of modal footer -->
+                </div> <!-- end of modal content -->
+              </div> <!-- end of modal dialog -->
+            </div> <!-- end of character modal -->
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#" id="stop"><span class="glyphicon glyphicon-volume-off"></span></a></li>
+        </ul>
+      </div> <!-- nav-collapse -->
+    </div> <!-- container-fluid -->
+  </nav> <!-- end of navbar -->
+
+  <!-- create username input -->
+  <form role="form">
+    <div class="form-group">
+      <center><label class="nickname" for="text">Enter your nickname:</label></center>
+      <input type="text" class="form-control" id="nameinput">
+      <br>
+      <center><button type="submit" class="btn btn-default" id="submitName">Submit</button></center>
+    </div> <!-- end of form-group -->
+  </form> <!-- end of username input -->
+
+  <div class="row">
+  <!-- player1 Panel -->
+  <div class="col-lg-3 box">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title p1Name">Player 1</h3>
+      </div> <!-- end of panel heading -->
+      <div class="panel-body p1Choice hide">
+        <div class="choiceTitle">Please make a choice:</div>
+        <button class="rock"><img id="rock1" src = "assets/Images/r1.png"></img></button>
+        <button class="paper"><img id="paper1" src = "assets/Images/p1.png"></button>
+        <button class="scissors"><img id="scissors1" src = "assets/Images/s1.png"></button>
+      </div> <!-- end of panel body -->
+      <div class="panel-body p1Wait hide"></div>
+    </div> <!-- end of panel with player 1 -->
+  </div> <!-- end of box 1 -->
+
+  <!-- results Panel -->
+  <div class="col-lg-2 box">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+      </div> <!-- end of panel heading -->
+      <div class='panel-body results hide'></div>
+    </div> <!-- end of panel -->
+  </div>  <!-- end of results -->
+
+  <!-- player2 Panel -->
+  <div class="col-lg-3 box">
+    <div class="panel panel-default panel">
+      <div class="panel-heading">
+        <h3 class="panel-title p2Name">Player 2</h3>
+      </div> <!-- end of panel heading -->
+      <div class="panel-body p2Choice hide">
+        <div class="choiceTitle">Please make a choice:</div>
+        <button class="rock"><img id="rock2" src = "assets/Images/r1.png"></img></button>
+        <button class="paper"><img id="paper2" src = "assets/Images/p1.png"></button>
+        <button class="scissors"><img id="scissors2" src = "assets/Images/s1.png"></button>
+      </div> <!-- end of panel body -->
+      <div class="panel-body p2Wait hide"></div>
+    </div> <!-- end of panel with player 2 -->
+  </div> <!-- end of box -->
+
+  <!-- score Panel -->
+  <div class="col-lg-3 box">
+    <div class="panel panel-default panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">Score</h3>
+      </div>  <!-- end of panel heading -->
+      <div class='panel-body score p1wins hide'></div>
+      <div class='panel-body score p2wins hide'></div>
+      <div class='panel-body score draws hide'></div>
+    </div>  <!-- end of panel with score -->
+  </div> <!-- end of box -->
+
+  </div> <!-- end of row with players, results, score -->
+
+  <!-- chat Panel -->
+  <div class="row">
+  <div class="col-lg-11">
+    <div class="container chatBox">
+        <ul class="messages"></ul>
+        <form action="" class="chat">
+        
+          <input type='text' id='messageInput'  placeholder='Type a message...' required maxlength=140>
+          <input type="submit" id='sendButton' value="Send">
+        </form>
+    </div> <!-- end of chatBox -->
+  </div> <!-- end of col -->
+  </div> <!-- end of row with chat -->
+
+
+  <!-- Error 1 -->
+  <div id="error1Modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title error1-title text-center">Sorry</h4>
+      </div>
+      <div class="modal-body error1-body">
+        <div class="error1">
+        <p>The other player has disconnected! Please rejoin to play again.</p>
+        </div> <!-- end of rules div -->
+      </div> <!-- end of modal body -->
+      <div class="modal-footer">
+        <div class="modal-btn-group">
+          <button type="button" data-dismiss="modal" class="btn btn-lg Reload">Close</button>
+        </div>
+      </div> <!-- end of modal footer -->
+    </div> <!-- end of modal content -->
+    </div> <!-- end of modal dialog -->
+  </div> <!-- end of error1 modal -->
+
+</div> <!-- end of wrap -->
+
+<div id="footer">
+  <div class="container">
+    <p class="text-center copyright">@ Copyright 2017 Artem Tregubchak</p>
+  </div>
+</div>
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/4.1.4/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD7uOYBJzayWEFb3gLjijd13W5JS9Rdo5k",
+    authDomain: "rps-firebase-ce367.firebaseapp.com",
+    databaseURL: "https://rps-firebase-ce367.firebaseio.com",
+    projectId: "rps-firebase-ce367",
+    storageBucket: "rps-firebase-ce367.appspot.com",
+    messagingSenderId: "210744216326"
+  };
+  firebase.initializeApp(config);
+  </script>
+  <!-- local javascript file -->
+  <script type="text/javascript" src="assets/javascript/rps.js"></script>
+</body>
+</html>

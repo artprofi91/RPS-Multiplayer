@@ -1,0 +1,245 @@
+/* the html and body elements cannot have any padding or margin */
+/*overflow-x very very important*/
+html,
+body {
+    height: 100%;
+    font-family:  'Calligraffitti', cursive !important;
+    overflow-x: hidden !important;
+}
+/*delete ugly blue border */
+button, 
+button:active, 
+button:focus {
+    outline: none !important;
+}
+
+/*don't see audio file*/
+audio {
+    display: none;
+}
+
+/* wrap for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+    background-color: #F6EDCC; 
+}
+
+/* set the fixed height of the footer here */
+#footer {
+    padding-top: 20px;
+    height: 60px !important;
+    background-color: #b17b2d;
+    color:#222220;
+    width: 100% !important;
+}
+/* create RPS brand*/
+.navbar-brand {
+    color:#222220 !important;
+    font-size: 30px !important;
+    font-weight: bold;
+}
+/*rules and volume icon*/
+.navbar-default .navbar-nav>li>a{
+    color: #222220  !important;
+    font-size: 25px;
+}
+
+/*locate our brand in center*/
+.brand-centered {
+    background-color: #b17b2d !important;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0px;
+}
+
+.navbar-toggle {
+    z-index: 1;
+}
+
+
+/*================ modal rules========*/
+.rules-body,
+.character-body {
+    background-color: #F6EDCC; 
+    min-height: 350px;
+}
+.modal-header,
+.modal-footer {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    background-color: #b17b2d;
+    color: #222220;
+    border-style: none;
+}
+.modal-title {
+    font-size: 30px;
+}
+.btn-lg {
+    background: #b17b2d;
+
+}
+.rules {
+    color: #A31716;
+    line-height: 20px;
+    font-size: 20px;
+    background-color: #F6EDCC
+}
+/*=========end of modal rules============*/
+/* youtube video in rules*/
+iframe {
+    position: relative;
+    height: 315px;
+    width: 100%; 
+}
+
+/*submit username button*/
+.btn {
+    background-color: #b17b2d !important;
+}
+
+/*hide info before username entered*/
+.hide{
+    display: none;
+}
+
+/*enter your nickname size*/
+.nickname {
+    font-size: 20px;
+}
+
+/*locate nickname input*/
+#nameinput{
+    margin-left: 40%;
+    width: 20%;
+    background-color: #F6EDCC !important;
+    border-color: #b17b2d;
+    border-width: 2px;
+}
+
+/*locate all box correct (players, result, score)*/
+.box{
+    text-align: center;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+/*cool background for headings*/
+.panel-heading {
+    text-align: center;
+    background-color: #b17b2d !important;
+}
+
+.panel-body {
+    border-color: #b17b2d !important;
+    border-style: solid !important;
+    background-color: #F6EDCC; 
+    border-width: 2px;
+    height: 150px;
+}
+
+.p1wins {
+    border-right-style: none !important;
+    float: left;
+}
+
+.p2wins {
+    border-left-style: none !important;
+    float: right;
+}
+
+
+.chatBox {
+    max-height: 100%;
+    padding-bottom: 1%;
+    padding-top: 1%;
+    background-color: #b17b2d !important;
+    margin-bottom: 10px;
+    margin-left: 4% !important;
+}
+
+/*chat send button*/
+#sendButton{
+    margin-left: 3.6%;
+    width: 18%;
+    background-color: #F6EDCC; 
+    border: none;
+    padding: 0.5%;
+}
+
+/*chat message input*/
+#messageInput {
+    background-color: #F6EDCC; 
+    border: none;
+    width: 78%;
+    padding: 0.5%;
+    margin-bottom: 10px;
+}
+/*area with chat messages*/
+.messages {
+    /*max-height after will be scrolling*/
+    max-height: 250px;
+    overflow: auto;
+    background-color: #F6EDCC;
+    padding: 20px;
+}
+
+/*messages margin and border*/
+.messages li {
+    border-bottom:1px solid #b17b2d;
+    margin:10px;
+}
+
+/*username in chat cool color*/
+.messages strong {
+  margin-right: 10px;
+  color: #b17b2d;
+}
+
+/*locate picks in result area*/
+
+.p1pick{
+    float: left;
+}
+
+.p2pick{
+    float: right;
+}
+
+
+.rock,
+.paper,
+.scissors {
+    background-color: #F6EDCC; 
+    border: none;
+    width: 70px !important;
+}
+
+#rock1, #paper1, #scissors1,
+#rock2, #paper2, #scissors2 {
+    width: 70px !important;
+}
+
+#r1, #r2, #r3,
+#p1, #p2, #p3,
+#s1, #s2, #s3 {
+    width: 30%;
+}
+
+
+.error1-body {
+    background-color: #F6EDCC; 
+}
+p {
+    font-size: 16px;
+}
+
+
